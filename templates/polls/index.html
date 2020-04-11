@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="text-dark text-center mt-4">
+  <h4>Polls Questions</h4>
+</div>
+{% for question in questions_list %}
+<div class="card card-body mt-4 bg-light">
+  <p>{{ question.question_text }}</p>
+  <div class="row">
+    <a
+      class="btn btn-sm btn-primary ml-3"
+      href="{% url 'polls:detail' question.id %}"
+      >Vote Now</a
+    >
+    <a
+      class="btn btn-sm btn-secondary ml-4"
+      href="{% url 'polls:results' question.id %}"
+      >Results</a
+    >
+  </div>
+</div>
+{% endfor %} {% endblock %}
